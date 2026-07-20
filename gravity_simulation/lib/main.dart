@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -134,7 +135,8 @@ class _GravitySimScreenState extends State<GravitySimScreen>
       // Keep ball within arena boundaries
       _posX = targetPos.dx.clamp(_ballRadius, _arenaWidth - _ballRadius);
       _posY = targetPos.dy.clamp(_ballRadius, _arenaHeight - _ballRadius);
-      _velocityX = 0.0;
+      // Random velocity between -300 and +300 px/sec
+      _velocityX = (Random().nextDouble() - 0.5) * 600;
       _velocityY = 0.0;
     });
   }
