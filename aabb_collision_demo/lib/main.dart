@@ -30,92 +30,170 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const CollisionDemoScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+class CollisionDemoScreen extends StatefulWidget {
+  const CollisionDemoScreen({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<CollisionDemoScreen> createState() => _CollisionDemoScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _CollisionDemoScreenState extends State<CollisionDemoScreen> {
+  // Player Box Properties (Position and Dimensions)
+  Offset _playerPosition = const Offset(50, 150);
+  final Size _playerSize = const Size(100, 100);
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  // Obstacle Box Properties (Fixed Position and Dimensions)
+  final Offset _obstaclePosition = const Offset(200, 250);
+  final Size _obstacleSize = const Size(120, 120);
+
+  /// Converts position and size into Flutter's built-in [Rect] representation
+  Rect _getRect(Offset position, Size size) {
+    return Rect.fromLTWH(position.dx, position.dy, size.width, size.height);
+  }
+
+  /// Core AABB Collision Logic
+  /// Uses Flutter's built-in [Rect.overlaps] method
+  bool _checkCollision() {
+    final Rect playerRect = _getRect(_playerPosition, _playerSize);
+    final Rect obstacleRect = _getRect(_obstaclePosition, _obstacleSize);
+
+    // Equivalent to:
+    // playerRect.left < obstacleRect.right &&
+    // playerRect.right > obstacleRect.left &&
+    // playerRect.top < obstacleRect.bottom &&
+    // playerRect.bottom > obstacleRect.top
+    return playerRect.overlaps(obstacleRect);
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    final bool isColliding = _checkCollision();
+
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: const Text('AABB Collision Detection'),
+        centerTitle: true,
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+      body: Stack(
+        children: [
+          // Background Canvas Container
+          Positioned.fill(child: Container(color: const Color(0xFF1E1E1E))),
+
+          // 1. Fixed Obstacle Box
+          Positioned(
+            left: _obstaclePosition.dx,
+            top: _obstaclePosition.dy,
+            child: Container(
+              width: _obstacleSize.width,
+              height: _obstacleSize.height,
+              decoration: BoxDecoration(
+                color: isColliding ? Colors.blue : Colors.green,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Colors.white, width: 2),
+              ),
+              child: Center(
+                child: Text(
+                  'Obstacle\n${_obstacleSize.width.toInt()}x${_obstacleSize.height.toInt()}',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          ),
+
+          // 2. Draggable Player Box
+          Positioned(
+            left: _playerPosition.dx,
+            top: _playerPosition.dy,
+            child: GestureDetector(
+              onPanUpdate: (details) {
+                setState(() {
+                  // Update player position based on drag movement
+                  _playerPosition += details.delta;
+                });
+              },
+              child: Container(
+                width: _playerSize.width,
+                height: _playerSize.height,
+                decoration: BoxDecoration(
+                  color: isColliding ? Colors.blue : Colors.redAccent,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.white, width: 2),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black45,
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: const Center(
+                  child: Text(
+                    'Drag Me!',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          // 3. UI Status Banner
+          Positioned(
+            top: 20,
+            left: 20,
+            right: 20,
+            child: Card(
+              color: isColliding
+                  ? Colors.blue.withAlpha((0.9 * 255).round())
+                  : Colors.grey[850],
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    Icon(
+                      isColliding
+                          ? Icons.warning_amber_rounded
+                          : Icons.check_circle_outline,
+                      color: Colors.white,
+                      size: 28,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            isColliding
+                                ? 'COLLISION DETECTED!'
+                                : 'NO COLLISION',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            'Player Position: (${_playerPosition.dx.toInt()}, ${_playerPosition.dy.toInt()})',
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.white70,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
