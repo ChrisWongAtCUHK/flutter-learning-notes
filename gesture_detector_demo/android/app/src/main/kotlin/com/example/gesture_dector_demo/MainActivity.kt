@@ -1,4 +1,4 @@
-package com.example.gesture_dector_demo
+package com.example.gesture_detector_demo
 
 import io.flutter.embedding.android.FlutterActivity
 

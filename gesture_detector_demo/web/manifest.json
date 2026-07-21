@@ -1,6 +1,6 @@
 {
-    "name": "gesture_dector_demo",
-    "short_name": "gesture_dector_demo",
+    "name": "gesture_detector_demo",
+    "short_name": "gesture_detector_demo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

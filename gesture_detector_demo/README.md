@@ -1,4 +1,4 @@
-# gesture_dector_demo
+# gesture_detector_demo
 
 A new Flutter project.
 
