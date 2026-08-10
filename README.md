@@ -6,3 +6,4 @@
 2. [Flutter Tutorial for Beginners #2 - Flutter Overview](https://www.youtube.com/watch?v=bKueYVtV0eA&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=2)
 3. [Flutter Tutorial for Beginners #3 - Dart Primer](https://www.youtube.com/watch?v=FLQ-Vhw1NYQ&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=4)
     - https://dartpad.dev/
+4. [Flutter Tutorial for Beginners #4 - Creating a Flutter App in Android Studio](https://www.youtube.com/watch?v=TSIhiZ5jRB0&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=6)
