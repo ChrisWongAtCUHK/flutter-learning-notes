@@ -8,3 +8,4 @@
     - https://dartpad.dev/
 4. [Flutter Tutorial for Beginners #4 - Creating a Flutter App in Android Studio](https://www.youtube.com/watch?v=TSIhiZ5jRB0&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=6)
 5. [Flutter Tutorial for Beginners #5 - Scaffold & AppBar Widgets](https://www.youtube.com/watch?v=C5lpPjoivaw&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=7)
+6. [Flutter Tutorial for Beginners #6 - Colours & Fonts](https://www.youtube.com/watch?v=km2P_KQJyO0&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=8)
