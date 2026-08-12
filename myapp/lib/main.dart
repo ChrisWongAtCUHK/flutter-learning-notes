@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
+    theme: ThemeData(
+      fontFamily: 'IndieFlower', // Applies font locally across the whole app
+    ),
     home: Scaffold(
       appBar: AppBar(
         title: Text('my first app'),
@@ -10,19 +13,15 @@ void main() {
       ),
       body: Center(
         child: Text(
-          'hello ninjas!',
-          style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2.0,
-              color: Colors.grey[600],
-          ),
+          'hello ninjas!!!',
+          style: TextStyle(fontSize: 32), // Made larger to make style obvious
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: Colors.red[600],
-          child: Text('click')),
+        onPressed: () {},
+        backgroundColor: Colors.red[600],
+        child: Text('click'),
+      ),
     ),
   ));
 }
