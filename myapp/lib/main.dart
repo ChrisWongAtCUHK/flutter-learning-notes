@@ -5,7 +5,16 @@ void main() {
     theme: ThemeData(
       fontFamily: 'IndieFlower', // Applies font locally across the whole app
     ),
-    home: Scaffold(
+    home: Home(),
+  ));
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(
         title: Text('my first app'),
         centerTitle: true,
@@ -22,6 +31,6 @@ void main() {
         backgroundColor: Colors.red[600],
         child: Text('click'),
       ),
-    ),
-  ));
+    );
+  }
 }
