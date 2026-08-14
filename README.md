@@ -10,3 +10,4 @@
 5. [Flutter Tutorial for Beginners #5 - Scaffold & AppBar Widgets](https://www.youtube.com/watch?v=C5lpPjoivaw&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=7)
 6. [Flutter Tutorial for Beginners #6 - Colours & Fonts](https://www.youtube.com/watch?v=km2P_KQJyO0&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=8)
 7. [Flutter Tutorial for Beginners #7 - Stateless Widgets & Hot Reload](https://www.youtube.com/watch?v=zwPBMg3SHVU&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=9)
+8. [Flutter Tutorial for Beginners #8 - Images & Assets](https://www.youtube.com/watch?v=Hxh6nNHSUjo&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=10)
