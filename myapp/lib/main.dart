@@ -24,6 +24,7 @@ class Home extends StatelessWidget {
         child: Icon(
           Icons.airport_shuttle,
           color: Colors.lightBlue,
+          size: 50.0,
         ),
       ),
       floatingActionButton: FloatingActionButton(
