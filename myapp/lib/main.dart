@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],
       ),
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
         color: Colors.grey[400],
         child: Text('hello'),
       ),
