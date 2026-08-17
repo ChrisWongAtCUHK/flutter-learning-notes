@@ -12,3 +12,4 @@
 7. [Flutter Tutorial for Beginners #7 - Stateless Widgets & Hot Reload](https://www.youtube.com/watch?v=zwPBMg3SHVU&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=9)
 8. [Flutter Tutorial for Beginners #8 - Images & Assets](https://www.youtube.com/watch?v=Hxh6nNHSUjo&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=10)
 9. [Flutter Tutorial for Beginners #9 - Buttons & Icons](https://www.youtube.com/watch?v=ABmqtI7ec7E&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=11)
+10. [Flutter Tutorial for Beginners #10 - Containers & Padding](https://www.youtube.com/watch?v=H0cJ0gUlgE8&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=12)
