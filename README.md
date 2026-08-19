@@ -14,3 +14,4 @@
 9. [Flutter Tutorial for Beginners #9 - Buttons & Icons](https://www.youtube.com/watch?v=ABmqtI7ec7E&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=11)
 10. [Flutter Tutorial for Beginners #10 - Containers & Padding](https://www.youtube.com/watch?v=H0cJ0gUlgE8&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=12)
 11. [Flutter Tutorial for Beginners #11 - Rows](https://www.youtube.com/watch?v=a6oKFvGuTH4&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=13)
+12. [Flutter Tutorial for Beginners #12 - Columns](https://www.youtube.com/watch?v=siFU8c_Heu0&list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&index=13)
